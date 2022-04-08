@@ -1,3 +1,9 @@
 .todo__list {
   text-align: center;
 }
+.todo__list-item {
+  /* margin: 10px; */
+  width: 80%;
+  margin: 10%;
+  background-color: rgb(201, 71, 205);
+}

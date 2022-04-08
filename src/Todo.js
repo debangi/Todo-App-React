@@ -5,7 +5,7 @@ import './Todo.css';
 function Todo(props) {
   return (
     <List className='todo__list'>
-      <ListItem>
+      <ListItem className='todo__list-item'>
         <ListItemAvatar></ListItemAvatar>
         <ListItemText primary={props.todo} secondary='Dummy deadline ⏰' />
       </ListItem>

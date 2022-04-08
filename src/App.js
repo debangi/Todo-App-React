@@ -52,11 +52,9 @@ function App() {
         </Button>
       </form>
 
-      <ul>
-        {todos.map((todo) => (
-          <Todo todo={todo} />
-        ))}
-      </ul>
+      {todos.map((todo) => (
+        <Todo todo={todo} />
+      ))}
     </div>
   );
 }
