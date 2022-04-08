@@ -1,9 +1,14 @@
 .todo__list {
   text-align: center;
 }
-.todo__list-item {
-  /* margin: 10px; */
-  width: 80%;
-  margin: 10%;
-  background-color: rgb(201, 71, 205);
+.modal-box {
+  width: 500px;
+  padding: 50px;
+  background-color: rgba(204, 222, 236, 0.919);
+  position: absolute;
+  top: '50%';
+  left: '50%';
+  transform: 'translate(-50%, -50%)';
+  width: 400;
+  border: 2px solid #000;
 }

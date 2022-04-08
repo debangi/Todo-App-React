@@ -13,7 +13,9 @@ function App() {
     db.collection('todos')
       .orderBy('timestamp', 'desc')
       .onSnapshot((snapshot) => {
-        setTodos(snapshot.docs.map((doc) => doc.data().todo));
+        setTodos(
+          snapshot.docs.map((doc) => ({ id: doc.id, todo: doc.data().todo }))
+        );
       });
   }, []);
 
@@ -24,9 +26,8 @@ function App() {
       todo: input,
       timestamp: firebase.firestore.Timestamp.now(),
     });
-
-    // setTodos([...todos, input]);
     setInput('');
+    console.log(todos);
   };
 
   return (
@@ -52,9 +53,11 @@ function App() {
         </Button>
       </form>
 
-      {todos.map((todo) => (
-        <Todo todo={todo} />
-      ))}
+      <ul>
+        {todos.map((todo) => (
+          <Todo todo={todo} />
+        ))}
+      </ul>
     </div>
   );
 }
