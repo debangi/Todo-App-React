@@ -49,10 +49,10 @@ function Todo(props) {
           <ListItemAvatar></ListItemAvatar>
           <ListItemText
             primary={props.todo.todo}
-            secondary='Dummy deadline ⏰'
+            // secondary='Dummy deadline ⏰'
           />
         </ListItem>
-        <button onClick={handleOpen}>Edit Me!</button>
+        <Button onClick={handleOpen}>Edit Me!</Button>
         <DeleteForeverIcon
           onClick={(event) =>
             db.collection('todos').doc(props.todo.id).delete()
