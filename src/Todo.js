@@ -59,7 +59,6 @@ function Todo(props) {
             </Button>
           </Box>
         </Modal>
-        <ListItemAvatar></ListItemAvatar>
         <ListItemText
           primary={props.todo.todo}
           // secondary='Dummy deadline ⏰'
