@@ -1,4 +1,4 @@
-import { Button, FormControl, Input, InputLabel } from '@mui/material';
+import { Button, FormControl, Input, InputLabel, List } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Todo from './Todo';
 import './App.css';
@@ -53,11 +53,11 @@ function App() {
         </Button>
       </form>
 
-      <ul>
+      <List className='todo__list'>
         {todos.map((todo) => (
           <Todo todo={todo} />
         ))}
-      </ul>
+      </List>
     </div>
   );
 }

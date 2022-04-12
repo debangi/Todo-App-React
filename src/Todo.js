@@ -1,15 +1,27 @@
 import React, { Fragment, useState } from 'react';
 import {
   Button,
-  List,
   ListItem,
   ListItemAvatar,
   ListItemText,
   Modal,
+  Box,
 } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import db from './firebase';
 import './Todo.css';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 function Todo(props) {
   const [open, setOpen] = useState(false);
@@ -33,32 +45,32 @@ function Todo(props) {
 
   return (
     <Fragment>
-      <Modal open={open} onClose={handleClose}>
-        <div className='modal-box'>
-          <h1>Edit here!</h1>
-          <input
-            placeholder={props.todo.todo}
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
-          <Button onClick={updateTodo}>Update Todo</Button>
-        </div>
-      </Modal>
-      <List className='todo__list'>
-        <ListItem>
-          <ListItemAvatar></ListItemAvatar>
-          <ListItemText
-            primary={props.todo.todo}
-            // secondary='Dummy deadline ⏰'
-          />
-        </ListItem>
+      <ListItem className='todolist__item'>
+        <Modal open={open} onClose={handleClose}>
+          <Box sx={style}>
+            <h1>Edit here!</h1>
+            <input
+              placeholder={props.todo.todo}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <Button variant='outlined' color='secondary' onClick={updateTodo}>
+              Update Todo
+            </Button>
+          </Box>
+        </Modal>
+        <ListItemAvatar></ListItemAvatar>
+        <ListItemText
+          primary={props.todo.todo}
+          // secondary='Dummy deadline ⏰'
+        />
         <Button onClick={handleOpen}>Edit Me!</Button>
         <DeleteForeverIcon
           onClick={(event) =>
             db.collection('todos').doc(props.todo.id).delete()
           }
         />
-      </List>
+      </ListItem>
     </Fragment>
   );
 }
