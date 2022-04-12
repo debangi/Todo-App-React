@@ -1,12 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import {
-  Button,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  Modal,
-  Box,
-} from '@mui/material';
+import { Button, ListItem, ListItemText, Modal, Box } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import db from './firebase';
 import './Todo.css';
